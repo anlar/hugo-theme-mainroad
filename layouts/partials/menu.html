@@ -10,6 +10,9 @@
 		<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
 			<a class="menu__link" href="{{ .URL }}">
 				{{ .Pre }}
+				{{- if .Params.Partial }}
+					{{ partial .Params.Partial (dict "class" "widget-social__link-icon") }}
+				{{- end }}
 				<span class="menu__text">{{ .Name }}</span>
 				{{ .Post }}
 			</a>
